@@ -56,6 +56,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../../cities/">Cities</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../downloads/">Downloads</a>
+                    </li>
+                </ul>
                 <p class="caption"><span class="caption-text">Users</span></p>
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../../join/">Sign up for project news</a>
@@ -180,12 +184,26 @@
 <td>See at cities page</td>
 <td>true</td>
 </tr>
+<tr>
+<td>passport1</td>
+<td><strong>FILE</strong> (passport main page)</td>
+<td>true</td>
+</tr>
+<tr>
+<td>passport2</td>
+<td><strong>FILE</strong> (passport propiska page)</td>
+<td>true</td>
+</tr>
 </tbody>
 </table>
 <h2 id="url">URL</h2>
-<p>/users/performer</p>
+<p><strong>POST</strong> /users/performer</p>
 <h2 id="response">Response</h2>
 <p>You will receive JSON with user`s accessToken.</p>
+<pre><code class="language-json">{
+  &quot;accessToken&quot;: &quot;c898404658d3ec32800a6d706ed7d23215bc93abb00ab8d828ef5d87ec513bf9&quot;
+}
+</code></pre>
 <h2 id="limits">Limits</h2>
 <p>3 requests per 15 minutes</p>
               

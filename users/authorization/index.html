@@ -56,6 +56,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../cities/">Cities</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../downloads/">Downloads</a>
+                    </li>
+                </ul>
                 <p class="caption"><span class="caption-text">Users</span></p>
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../join/">Sign up for project news</a>
@@ -152,9 +156,13 @@
 </tbody>
 </table>
 <h2 id="url">URL</h2>
-<p>/accessToken</p>
+<p><strong>GET</strong> /accessToken</p>
 <h2 id="response">Response</h2>
 <p>You will receive json with <strong>accessToken</strong> field</p>
+<pre><code class="language-json">{
+  &quot;accessToken&quot;: &quot;c898404658d3ec32800a6d706ed7d23215bc93abb00ab8d828ef5d87ec513bf9&quot;
+}
+</code></pre>
 <h2 id="limits">Limits</h2>
 <p>3 requests per 15 minutes</p>
               

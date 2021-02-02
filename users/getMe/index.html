@@ -56,6 +56,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../cities/">Cities</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../downloads/">Downloads</a>
+                    </li>
+                </ul>
                 <p class="caption"><span class="caption-text">Users</span></p>
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../join/">Sign up for project news</a>
@@ -148,9 +152,67 @@
 </tbody>
 </table>
 <h2 id="url">URL</h2>
-<p>/me</p>
+<p><strong>GET</strong> /me</p>
 <h2 id="response">Response</h2>
-<p>You will receive JSON with user`s data</p>
+<p>For performers:</p>
+<pre><code class="language-json">{
+  &quot;_id&quot;: &quot;6013e2839a4995a85411c20c&quot;,
+  &quot;firstName&quot;: &quot;Алексей&quot;,
+  &quot;middleName&quot;: &quot;Михайлович&quot;,
+  &quot;lastName&quot;: &quot;Хордов&quot;,
+  &quot;inn&quot;: &quot;999999999999&quot;,
+  &quot;personalID&quot;: &quot;0713 827356&quot;,
+  &quot;balance&quot;: 3000,
+  &quot;city&quot;: &quot;ru:moscow&quot;,
+  &quot;email&quot;: &quot;wejoigjoiew@mail.ru&quot;,
+  &quot;username&quot;: &quot;wejoigjoiew&quot;,
+  &quot;passportFiles&quot;: [
+    &quot;upload_3d68c5b44c024776096e6389b83f0e4c.jpg&quot;,
+    &quot;upload_3c5889afe5a51590176b859598aacd56.png&quot;
+  ],
+  &quot;createdAt&quot;: &quot;2021-01-29T10:25:07.607Z&quot;,
+  &quot;role&quot;: &quot;performer&quot;,
+  &quot;verifyStatus&quot;: 0,
+  &quot;lastVisitAt&quot;: &quot;2021-02-02T12:10:26.184Z&quot;
+}
+</code></pre>
+<p>For customers (no anketa filled):</p>
+<pre><code class="language-json">{
+  &quot;_id&quot;: &quot;6019437886c50e3b0f46e6ad&quot;,
+  &quot;firstName&quot;: &quot;Алексей&quot;,
+  &quot;email&quot;: &quot;wejoigjoiefw@mail.ru&quot;,
+  &quot;username&quot;: &quot;wejoigjoiefw&quot;,
+  &quot;balance&quot;: 3000,
+  &quot;createdAt&quot;: &quot;2021-02-02T12:20:08.542Z&quot;,
+  &quot;role&quot;: &quot;customer&quot;,
+  &quot;verifyStatus&quot;: 0,
+  &quot;lastVisitAt&quot;: &quot;2021-02-02T12:21:57.322Z&quot;,
+}
+</code></pre>
+<p>For customers (anketa filled):</p>
+<pre><code class="language-json">{
+  &quot;_id&quot;: &quot;6019437886c50e3b0f46e6ad&quot;,
+  &quot;firstName&quot;: &quot;Алексей&quot;,
+  &quot;email&quot;: &quot;wejoigjoiefw@mail.ru&quot;,
+  &quot;username&quot;: &quot;wejoigjoiefw&quot;,
+  &quot;balance&quot;: 3000,
+  &quot;createdAt&quot;: &quot;2021-02-02T12:20:08.542Z&quot;,
+  &quot;role&quot;: &quot;customer&quot;,
+  &quot;verifyStatus&quot;: 0,
+  &quot;lastVisitAt&quot;: &quot;2021-02-02T12:21:57.322Z&quot;,
+  &quot;legalName&quot;: &quot;ИП Алексеев Алексей Алексеевич&quot;,
+  &quot;inn&quot;: &quot;999999999999&quot;,
+  &quot;ogrn&quot;: &quot;9999999999999&quot;,
+  &quot;bik&quot;: &quot;999999999&quot;,
+  &quot;bankName&quot;: &quot;Sivitskiy`s Bank&quot;,
+  &quot;bankAccount&quot;: &quot;99999999999999999999&quot;,
+  &quot;lawAddress&quot;: &quot;Россия, Тверская область, г. Тверь, ул. Вокзальная д. 1&quot;,
+  &quot;zipAddress&quot;: &quot;Россия, Тверская область, г. Тверь, ул. Вокзальная д. 1&quot;,
+  &quot;legalFIO&quot;: &quot;Мазафаков Михаил Игоревич&quot;,
+  &quot;legalPosition&quot;: &quot;Генеральный директор&quot;,
+  &quot;legalPurpose&quot;: &quot;цлупзщукплузщлпщзуклцпр&quot;
+}
+</code></pre>
 <h2 id="limits">Limits</h2>
 <p>10 requests per 30 minutes</p>
               
