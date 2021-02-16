@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://api-docs.xipa.ru/users/authorization/">
+  <link rel="canonical" href="https://api-docs.xipa.ru/orders/create/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Authorization (getting token) - XIPA API Docs</title>
+  <title>Create an order - XIPA API Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Authorization (getting token)";
-    var mkdocs_page_input_path = "users/authorization.md";
-    var mkdocs_page_url = "/users/authorization/";
+    var mkdocs_page_name = "Create an order";
+    var mkdocs_page_input_path = "orders/create.md";
+    var mkdocs_page_url = "/orders/create/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
@@ -61,40 +61,30 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Users</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../join/">Sign up for project news</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../users/join/">Sign up for project news</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Authorization (getting token)</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#required-data">Required data</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#url">URL</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#response">Response</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#limits">Limits</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../users/authorization/">Authorization (getting token)</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../getMe/">Getting themself info</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../users/getMe/">Getting themself info</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../passwordReset/">Password reset</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../users/passwordReset/">Password reset</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../edit/">Edit profile info</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../users/edit/">Edit profile info</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Customers</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../customers/register/">Create an account</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../users/customers/register/">Create an account</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../customers/anketa/">Filling user`s anketa</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../users/customers/anketa/">Filling user`s anketa</a>
                 </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Performers</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../performers/register/">Create an account</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../users/performers/register/">Create an account</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../performers/exists/">Check if performer exists</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../users/performers/exists/">Check if performer exists</a>
                 </li>
     </ul>
                     </li>
@@ -105,10 +95,18 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Orders</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../orders/create/">Create an order</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Create an order</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#request-example">Request example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#response">Response</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limits">Limits</a>
+    </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../orders/list/">List orders</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../list/">List orders</a>
                     </li>
                 </ul>
       </div>
@@ -132,14 +130,14 @@
     
       
         
-          <li>Users &raquo;</li>
+          <li>Orders &raquo;</li>
         
       
     
-    <li>Authorization (getting token)</li>
+    <li>Create an order</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/aleokheen/xipa-api-docs/edit/master/docs/users/authorization.md"
+        <a href="https://github.com/aleokheen/xipa-api-docs/edit/master/docs/orders/create.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -150,33 +148,117 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="authorization">Authorization</h1>
-<p>Each sensitive request has to contain <code>accessToken</code> parameter. If it`s need to get accessToken for a user, you need:</p>
-<h2 id="required-data">Required data</h2>
+                <h1 id="create-an-order">Create an order</h1>
+<p>Only users with role "customer" can make orders.</p>
+<p>To create order, send</p>
+<p><strong>POST</strong> /order</p>
+<p>with parameters</p>
 <table>
 <thead>
 <tr>
-<th>field</th>
-<th>descrption</th>
+<th>Field</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>username</td>
-<td>User`s username</td>
+<td>name</td>
+<td>Order name</td>
+<td>true</td>
+<td>String</td>
 </tr>
 <tr>
-<td>password</td>
-<td>User`s password</td>
+<td>description</td>
+<td>Order description</td>
+<td>true</td>
+<td>String</td>
+</tr>
+<tr>
+<td>completeDate</td>
+<td>Timestamp (only future)</td>
+<td>true</td>
+<td>String or integer</td>
+</tr>
+<tr>
+<td>tasks[]</td>
+<td>Array of below (objects)</td>
+<td>true</td>
+<td>Array of objects</td>
+</tr>
+<tr>
+<td>tasks[].categoryID</td>
+<td>Category ID like "602bfe6cf8d293fbec82f93e"</td>
+<td>true</td>
+<td>MongoDB ObjectId</td>
+</tr>
+<tr>
+<td>tasks[].ids[]</td>
+<td>Array of indexes of tasks array of a category</td>
+<td>true</td>
+<td>Array of ints</td>
+</tr>
+<tr>
+<td>tasks[].needMaterial</td>
+<td>Is it needed materials to do the tasks</td>
+<td>true</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>tasks[].isHeavyTask</td>
+<td>Is the task heavy</td>
+<td>true</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Order address</td>
+<td>true</td>
+<td>String</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Customer`s phone</td>
+<td>true</td>
+<td>String</td>
+</tr>
+<tr>
+<td>isEmergency</td>
+<td>Is task urgent</td>
+<td>true</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td>User`s accessToken</td>
+<td>true</td>
+<td>String</td>
 </tr>
 </tbody>
 </table>
-<h2 id="url">URL</h2>
-<p><strong>GET</strong> /accessToken</p>
-<h2 id="response">Response</h2>
-<p>You will receive json with <strong>accessToken</strong> field</p>
+<h2 id="request-example">Request example</h2>
 <pre><code class="language-json">{
-  &quot;accessToken&quot;: &quot;c898404658d3ec32800a6d706ed7d23215bc93abb00ab8d828ef5d87ec513bf9&quot;
+  &quot;name&quot;: &quot;Настроить принте&quot;,
+  &quot;description&quot;: &quot;Шла Саша по шоссе и сосала сушку&quot;,
+  &quot;completeDate&quot;: &quot;2021-02-16T22:54:18+03:00&quot;,
+  &quot;tasks&quot;: [{
+    &quot;categoryID&quot;: &quot;602bfe6cf8d293fbec82f93e&quot;,
+    &quot;ids&quot;: [0,1],
+    &quot;needMaterial&quot;: false,
+    &quot;isHeavyTask&quot;: false
+  }],
+  &quot;address&quot;: &quot;Россия, Москва, ул. Сивицкого, д. 13&quot;,
+  &quot;phone&quot;: &quot;+79999999999&quot;,
+  &quot;isEmergency&quot;: false,
+  &quot;accessToken&quot;: &quot;c31d3cecf61f412c24160b9aa304b7af8128ad9495b828db1f1509dced31508f&quot;
+}
+</code></pre>
+<h2 id="response">Response</h2>
+<p>201</p>
+<p>JSON with orderID like</p>
+<pre><code class="language-json">{
+  &quot;orderID&quot;: &quot;602c25b3ff4c52b2198b07b8&quot;
 }
 </code></pre>
 <h2 id="limits">Limits</h2>
@@ -188,10 +270,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../getMe/" class="btn btn-neutral float-right" title="Getting themself info">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../list/" class="btn btn-neutral float-right" title="List orders">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../join/" class="btn btn-neutral" title="Sign up for project news"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../tasks/categories/" class="btn btn-neutral" title="Get categories"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +301,10 @@
           <a href="https://github.com/aleokheen/xipa-api-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../join/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../tasks/categories/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../getMe/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../list/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -9,3 +9,7 @@ table:not(:last-child) {
 th, td {
   padding: 10px 15px;
 }
+
+.wy-nav-content {
+  max-width: unset;
+}

@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://api-docs.xipa.ru/users/authorization/">
+  <link rel="canonical" href="https://api-docs.xipa.ru/users/edit/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Authorization (getting token) - XIPA API Docs</title>
+  <title>Edit profile info - XIPA API Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Authorization (getting token)";
-    var mkdocs_page_input_path = "users/authorization.md";
-    var mkdocs_page_url = "/users/authorization/";
+    var mkdocs_page_name = "Edit profile info";
+    var mkdocs_page_input_path = "users/edit.md";
+    var mkdocs_page_url = "/users/edit/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
@@ -64,7 +64,13 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../join/">Sign up for project news</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Authorization (getting token)</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../authorization/">Authorization (getting token)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getMe/">Getting themself info</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../passwordReset/">Password reset</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Edit profile info</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#required-data">Required data</a>
     </li>
@@ -75,12 +81,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#limits">Limits</a>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../getMe/">Getting themself info</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../passwordReset/">Password reset</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../edit/">Edit profile info</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Customers</a>
     <ul>
@@ -136,10 +136,10 @@
         
       
     
-    <li>Authorization (getting token)</li>
+    <li>Edit profile info</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/aleokheen/xipa-api-docs/edit/master/docs/users/authorization.md"
+        <a href="https://github.com/aleokheen/xipa-api-docs/edit/master/docs/users/edit.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -150,37 +150,31 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="authorization">Authorization</h1>
-<p>Each sensitive request has to contain <code>accessToken</code> parameter. If it`s need to get accessToken for a user, you need:</p>
+                <h1 id="edit-users-data">Edit user`s data</h1>
 <h2 id="required-data">Required data</h2>
 <table>
 <thead>
 <tr>
-<th>field</th>
-<th>descrption</th>
+<th>Field</th>
+<th>Descrption</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>username</td>
-<td>User`s username</td>
-</tr>
-<tr>
-<td>password</td>
-<td>User`s password</td>
+<td>accessToken</td>
+<td>User`s access token</td>
 </tr>
 </tbody>
 </table>
+<p>and any data you need to edit</p>
 <h2 id="url">URL</h2>
-<p><strong>GET</strong> /accessToken</p>
+<p><strong>PUT</strong> /editUserInfo</p>
 <h2 id="response">Response</h2>
-<p>You will receive json with <strong>accessToken</strong> field</p>
-<pre><code class="language-json">{
-  &quot;accessToken&quot;: &quot;c898404658d3ec32800a6d706ed7d23215bc93abb00ab8d828ef5d87ec513bf9&quot;
-}
-</code></pre>
+<p>201</p>
+<p>You also will receive JSON with accessToken, if user`s password was changed.
+Otherwise, you will receive blank JSON ({})</p>
 <h2 id="limits">Limits</h2>
-<p>3 requests per 15 minutes</p>
+<p>3 requests per second</p>
               
             </div>
           </div>
@@ -188,10 +182,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../getMe/" class="btn btn-neutral float-right" title="Getting themself info">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../customers/register/" class="btn btn-neutral float-right" title="Create an account">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../join/" class="btn btn-neutral" title="Sign up for project news"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../passwordReset/" class="btn btn-neutral" title="Password reset"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +213,10 @@
           <a href="https://github.com/aleokheen/xipa-api-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../join/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../passwordReset/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../getMe/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../customers/register/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

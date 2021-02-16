@@ -70,6 +70,10 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../users/getMe/">Getting themself info</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../users/passwordReset/">Password reset</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../users/edit/">Edit profile info</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Customers</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../users/customers/register/">Create an account</a>
@@ -85,6 +89,18 @@
                 <li class="toctree-l2"><a class="reference internal" href="../users/performers/exists/">Check if performer exists</a>
                 </li>
     </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tasks</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tasks/categories/">Get categories</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Orders</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../orders/create/">Create an order</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../orders/list/">List orders</a>
                     </li>
                 </ul>
       </div>
@@ -123,8 +139,10 @@
             <div class="section">
               
                 <h1 id="cities">Cities</h1>
-<p>The template is: &lt;two-letter country code&lg;:&lt;City name in lower-case letters only in English&gt;</p>
-<p>I will project cities system in XIPA Services. For now, let`s make it as above. If you need, you can create a JSON file with country/city names and pretty city names</p>
+<p>You can get all cities by sending:</p>
+<p><strong>GET</strong> /json/cities.json</p>
+<p>You have to set city as it`s index of cities.json array (ex 0 for Москва).</p>
+<p>For example, to set user`s city, send <strong>city</strong> parameter as integer (it`s index of cities.json array)</p>
               
             </div>
           </div>

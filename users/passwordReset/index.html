@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://api-docs.xipa.ru/users/authorization/">
+  <link rel="canonical" href="https://api-docs.xipa.ru/users/passwordReset/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Authorization (getting token) - XIPA API Docs</title>
+  <title>Password reset - XIPA API Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Authorization (getting token)";
-    var mkdocs_page_input_path = "users/authorization.md";
-    var mkdocs_page_url = "/users/authorization/";
+    var mkdocs_page_name = "Password reset";
+    var mkdocs_page_input_path = "users/passwordReset.md";
+    var mkdocs_page_url = "/users/passwordReset/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
@@ -64,21 +64,35 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../join/">Sign up for project news</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Authorization (getting token)</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../authorization/">Authorization (getting token)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getMe/">Getting themself info</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Password reset</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#required-data">Required data</a>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-the-code">Getting the code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#required-data">Required data</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#url">URL</a>
+    <li class="toctree-l3"><a class="reference internal" href="#url">URL</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#response">Response</a>
+    <li class="toctree-l3"><a class="reference internal" href="#response">Response</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#send-resetion-request">Send resetion request</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#required-data_1">Required data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#url_1">URL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#response_1">Response</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#limits">Limits</a>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../getMe/">Getting themself info</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../passwordReset/">Password reset</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../edit/">Edit profile info</a>
                     </li>
@@ -136,10 +150,10 @@
         
       
     
-    <li>Authorization (getting token)</li>
+    <li>Password reset</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/aleokheen/xipa-api-docs/edit/master/docs/users/authorization.md"
+        <a href="https://github.com/aleokheen/xipa-api-docs/edit/master/docs/users/passwordReset.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -150,9 +164,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="authorization">Authorization</h1>
-<p>Each sensitive request has to contain <code>accessToken</code> parameter. If it`s need to get accessToken for a user, you need:</p>
-<h2 id="required-data">Required data</h2>
+                <h1 id="password-reset">Password reset</h1>
+<p>To reset an account password, it`s needed to send request (near below) and receive resetion code over user`s E-Mail.
+Then you need send second request (far below)</p>
+<h2 id="getting-the-code">Getting the code</h2>
+<h3 id="required-data">Required data</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Descrption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>User`s email</td>
+</tr>
+</tbody>
+</table>
+<h3 id="url">URL</h3>
+<p><strong>POST</strong> /resetPassword</p>
+<h3 id="response">Response</h3>
+<p>201</p>
+<pre><code class="language-json">{
+  &quot;accessToken&quot;: &quot;rkegorhhr...&quot;
+}
+</code></pre>
+<h2 id="send-resetion-request">Send resetion request</h2>
+<h3 id="required-data_1">Required data</h3>
 <table>
 <thead>
 <tr>
@@ -162,25 +202,25 @@
 </thead>
 <tbody>
 <tr>
-<td>username</td>
-<td>User`s username</td>
+<td>email</td>
+<td>User`s email</td>
+</tr>
+<tr>
+<td>code</td>
+<td>Password resetion code</td>
 </tr>
 <tr>
 <td>password</td>
-<td>User`s password</td>
+<td>New password</td>
 </tr>
 </tbody>
 </table>
-<h2 id="url">URL</h2>
-<p><strong>GET</strong> /accessToken</p>
-<h2 id="response">Response</h2>
-<p>You will receive json with <strong>accessToken</strong> field</p>
-<pre><code class="language-json">{
-  &quot;accessToken&quot;: &quot;c898404658d3ec32800a6d706ed7d23215bc93abb00ab8d828ef5d87ec513bf9&quot;
-}
-</code></pre>
+<h3 id="url_1">URL</h3>
+<p><strong>PUT</strong> /resetPassword</p>
+<h3 id="response_1">Response</h3>
+<p>201</p>
 <h2 id="limits">Limits</h2>
-<p>3 requests per 15 minutes</p>
+<p>5 requests per 30 minutes</p>
               
             </div>
           </div>
@@ -188,10 +228,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../getMe/" class="btn btn-neutral float-right" title="Getting themself info">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../edit/" class="btn btn-neutral float-right" title="Edit profile info">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../join/" class="btn btn-neutral" title="Sign up for project news"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../getMe/" class="btn btn-neutral" title="Getting themself info"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +259,10 @@
           <a href="https://github.com/aleokheen/xipa-api-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../join/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../getMe/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../getMe/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../edit/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
